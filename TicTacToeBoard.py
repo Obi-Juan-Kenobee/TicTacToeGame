@@ -31,7 +31,7 @@ class TicTacBoard:
 
         return self.row1, self.row2, self.row3
 
-    def update_board(self, board):
+    def update_board(self, board: tuple) -> tuple:
         """
         Args:
         board (tuple): The current state of the board.
@@ -47,7 +47,7 @@ class TicTacBoard:
 
         return row1, row2, row3
 
-    def check_position(self, board, marker, position):
+    def check_position(self, board: tuple, marker: str, position: int) -> tuple:
         """
          Check if the position picked by the player is available.
          If the position is already taken, prompt the user to choose another position.
@@ -57,6 +57,7 @@ class TicTacBoard:
         :param marker: The marker ('x' or 'o') to be placed on the board.
         :param position: The position chosen by the player.
         :return: The updated game board.
+        :rtype: tuple
         """
         row1, row2, row3 = board
         while True:
@@ -82,7 +83,7 @@ class TicTacBoard:
 
                 else:
                     row2[position - 4] = marker
-                    return False
+                    break
 
             elif 7 <= position <= 9:  # row3 on the board
                 if row3[position - 7] != "":
@@ -94,11 +95,11 @@ class TicTacBoard:
 
                 else:
                     row3[position - 7] = marker
-                    return False
+                    break
 
         return board
 
-    def check_win(self, board, marker):
+    def check_win(self, board: tuple, marker: str) -> bool:
         """
         Check if the player has won the game.
         Returns True if the player has won.
@@ -118,7 +119,7 @@ class TicTacBoard:
                 or (row1[0] == marker and row2[1] == marker and row3[2] == marker)
                 or (row1[2] == marker and row2[1] == marker and row3[0] == marker))
 
-    def check_tie(self, board):
+    def check_tie(self, board: tuple) -> bool:
         """
         Check if the game is a tie.
         Returns True if the game is a tie.

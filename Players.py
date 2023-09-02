@@ -21,7 +21,7 @@ class Player:
            See check_position method in TicTacToeBoard.py for implementation.
            :return int:
            """
-        position = ''
+        position: int = 0
         while True:
             try:
                 position = int(input(f"Player {self.player}, please choose a position (1-9): "))
