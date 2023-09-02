@@ -14,13 +14,11 @@ class Player:
             self.marker = input(f"Player {self.player}, choose a marker either 'x' or 'o': ").upper()
 
     def position(self):
-        """This function is used to store the position on the board the player picks.
-           This number does not directly translate the position picked to an index on the board,
-           as the board is a tuple of three separate lists.
-           Instead, subtraction of 1 is necessary.
-           EG. Player picks position 5 on the board, this is list labeled -
-           row2 and index 1 on this list.
-           See check_position function in TicTacToeBoard.py
+        """Prompt the player to choose a position on the board (1-9) and return it.
+           The chosen position does not directly translate to an index on the board,
+           as the board is a tuple of three separate lists. Subtraction of 1 is
+           necessary to convert the chosen position to the correct index.
+           See check_position method in TicTacToeBoard.py for implementation.
            :return int:
            """
         position = ''
